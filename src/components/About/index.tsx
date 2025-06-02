@@ -20,7 +20,9 @@ const About: React.FC<AboutProps> = async ({ lang }) => {
         <h2 className="mt-20 mb-10 text-Titles text-5xl text-center lg:text-left font-Geist-Mono font-bold">{contentfulData.title}</h2>
         <p className="mt-5 text-Text text-2xl font-Geist">{contentfulData.description}</p>
         <p className="mt-2.5 mb-10 text-Text text-2xl font-Geist">{contentfulData.description2}</p>
-        <Button>{contentfulData.button}</Button>
+        <a href="/CV_Alejandro_Mira.pdf" download="CV_Alejandro_Mira.pdf">
+          <Button>{contentfulData.button}</Button>
+        </a>
       </div>
     </section>
   )
