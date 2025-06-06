@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ lang }) => {
 
   return (
     <header className="fixed z-50 flex items-center justify-between w-full p-4 lg:px-10 font-bold text-Text bg-Background">
-      <Link href="#home" className="w-14 h-14 lg:w-20 lg:h-20">
+      <Link href="/" className="w-14 h-14 lg:w-20 lg:h-20">
         <Image src={logo} alt="logo-yarce" className="w-full h-full"/>
       </Link>
       {!windowSize && (

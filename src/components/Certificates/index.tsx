@@ -1,8 +1,13 @@
+"use client"
 import { gql, useSuspenseQuery } from "@apollo/client"
 import Image from "next/image";
 import Link from "next/link";
 
-const Certificates: React.FC = () => {
+interface CertificateProps {
+  limit?: number;
+}
+
+const Certificates: React.FC<CertificateProps> = ({ limit }) => {
   const { data } = useSuspenseQuery<CertificatesCollection>(gql`
     query {
       certificatesCollection {
@@ -16,7 +21,7 @@ const Certificates: React.FC = () => {
     }
   `);
 
-  const contentfulCertificates = data?.certificatesCollection?.items.slice(0, 6);
+  const contentfulCertificates = data?.certificatesCollection?.items.slice(0, limit);
 
   return (
     <section className="flex flex-col lg:flex-row items-center lg:justify-center pb-30 px-6 lg:pt-0">

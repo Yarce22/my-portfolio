@@ -1,20 +1,25 @@
+"use client"
 import { useEffect, useState } from "react";
 import { GET } from "@/app/api/netlify/route";
 import Image from "next/image";
 import Link from "next/link";
 
-const Projects: React.FC =  () => {
+interface ProjectsProps {
+  limit?: number
+}
+
+const Projects: React.FC<ProjectsProps> =  ({ limit }) => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     const netlifyProjects = async () => {
       const res = await GET();
       const data = await res.json();
-      setProjects(data.slice(0, 6));
+      setProjects(data.slice(0, limit));
     }
 
     netlifyProjects();
-  }, [])
+  }, [limit])
 
   return (
     <section className="flex flex-col justify-center items-center">

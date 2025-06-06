@@ -5,6 +5,7 @@ import Projects from "../Projects"
 import Certificates from "../Certificates"
 import Skills from "../Skills"
 import Button from "../Button"
+import Link from "next/link"
 
 interface PortfolioProps {
   lang: string
@@ -29,8 +30,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
 const contentfulData = data?.portfolioCollection.items[0];
 
 const [navProjects, setNavProjects] = useState([
-  {id: 1, name: contentfulData.navPorjects, isActive: true, Component: Projects, buttonText: contentfulData.buttonProjects},
-  {id: 2, name: contentfulData.navCertificates, isActive: false, Component: Certificates, buttonText: contentfulData.buttonCertificates},
+  {id: 1, name: contentfulData.navPorjects, isActive: true, Component: Projects, buttonText: contentfulData.buttonProjects, link: "/portfolio"},
+  {id: 2, name: contentfulData.navCertificates, isActive: false, Component: Certificates, buttonText: contentfulData.buttonCertificates, link: "/certificates"},
   {id: 3, name: contentfulData.navSkills, isActive: false, Component: Skills}
 ]);
 
@@ -65,8 +66,12 @@ const [navProjects, setNavProjects] = useState([
           if (nav.isActive) {
             return (
               <div key={nav.id} className="flex flex-col justify-center items-center">
-                <nav.Component />
-                {nav.buttonText && <Button>{nav.buttonText}</Button>}
+                <nav.Component limit={6} />
+                {nav.buttonText &&
+                  <Link href={`${lang}${nav.link}`}>
+                    <Button>{nav.buttonText}</Button>
+                  </Link>
+                }
               </div>
             )
           }

@@ -29,7 +29,7 @@ const Links: React.FC<LinksProps> = ({ lang, toggleMenu }) => {
   return (
     <>
       <Link
-        href="#home"
+        href="/#home"
         onClick={toggleMenu}
         className="relative inline-block group cursor-pointer transition-color duration-300 ease-in-out hover:text-Titles"
       >
@@ -37,7 +37,7 @@ const Links: React.FC<LinksProps> = ({ lang, toggleMenu }) => {
         <span className="absolute left-0 bottom-[-2px] h-[2px] w-full bg-Titles transform scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></span>
       </Link>
       <Link
-        href="#about"
+        href="/#about"
         onClick={toggleMenu}
         className="relative inline-block group cursor-pointer transition-color duration-300 ease-in-out hover:text-Titles"
       >
@@ -45,7 +45,7 @@ const Links: React.FC<LinksProps> = ({ lang, toggleMenu }) => {
         <span className="absolute left-0 bottom-[-2px] h-[2px] w-full bg-Titles transform scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></span>
       </Link>
       <Link
-        href="#portfolio"
+        href="/#portfolio"
         onClick={toggleMenu}
         className="relative inline-block group cursor-pointer transition-color duration-300 ease-in-out hover:text-Titles"
       >
